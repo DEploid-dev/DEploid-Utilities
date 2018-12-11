@@ -1,3 +1,34 @@
+library(dplyr)
+
+getProportionFromLastLine <- function(fileName){
+    if (!file.exists(fileName)){
+        prop = NULL
+    } else {
+        prop = system(paste("tail -n1", fileName), intern=T) %>%
+                    strsplit(., "\t") %>% unlist %>% as.numeric
+    }
+    return(prop)
+}
+
+
+computeEffectiveK <- function (prop){
+    return(1/sum(prop^2))
+}
+
+
+computeInferred.k <- function(prop){
+    return(sum(prop > .01))
+}
+
+
+chooseSeed <- function(seedAndInferredK){ # seedAndInferredK is a dataframe
+    inferred.k = seedAndInferredK$inferred.k
+    seed = seedAndInferredK$seed
+    idx = which(inferred.k == as.numeric(names(which.max(table(inferred.k)))))[1]
+    return(seed[idx])
+}
+
+
 dEploidOutError_3<-function(h.pair, h.pair.true, rel.cost.switch=2,  do.plot=FALSE) {
     l <- ncol(h.pair);
     n.hap <- nrow(h.pair)
