@@ -12,7 +12,12 @@ getProportionFromLastLine <- function(fileName){
 
 
 computeEffectiveK <- function (prop){
-    return(1/sum(prop^2))
+    sumsq = sum(prop^2)
+    if (sumsq == 0){
+        return(0)
+    } else {    
+        return(1/sumsq)
+    }
 }
 
 
@@ -25,6 +30,9 @@ chooseSeed <- function(seedAndInferredK){ # seedAndInferredK is a dataframe
     inferred.k = seedAndInferredK$inferred.k
     seed = seedAndInferredK$seed
     idx = which(inferred.k == as.numeric(names(which.max(table(inferred.k)))))[1]
+    if (length(idx) == 0){
+        return(NULL)
+    }
     return(seed[idx])
 }
 
