@@ -171,7 +171,7 @@ dEploidOutError_3<-function(h.pair, h.pair.true, rel.cost.switch=2,  do.plot=FAL
     dropTimes = sum(diff(drop.strain) != 0)
     dropError = sum(drop.strain != 0)
     cat("\nDecoding gives:\nNo. switches:\t", n.s-dropTimes, "\nNo. GT errs:\t", n.gt, "\nNo. Drop errs:\t", dropError,"\n");
-    return (list(switchError = n.s, # - dropTimes,
+    return (list(switchError = n.s - dropTimes,
              mutError = n.gt,
              dropError = dropError,
              op = op, drop.strain = drop.strain,
