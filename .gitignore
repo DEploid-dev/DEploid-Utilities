@@ -37,3 +37,4 @@ rsconnect/
 
 # DEploid compile
 *bak
+.Rproj.user
