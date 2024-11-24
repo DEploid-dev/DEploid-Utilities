@@ -22,3 +22,4 @@ LinkingTo: Rcpp
 RoxygenNote: 7.3.2
 Encoding: UTF-8
 Date: 2024-11-18
+License: Apache License (>= 2)
