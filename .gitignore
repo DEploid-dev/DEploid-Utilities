@@ -36,5 +36,6 @@ vignettes/*.pdf
 rsconnect/
 
 # DEploid compile
+*o
 *bak
 .Rproj.user
