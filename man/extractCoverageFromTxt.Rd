@@ -21,8 +21,8 @@ Extract read counts from tab-delimited text files of a single sample.
 The allele count files must be tab-delimited. The allele count files contain three columns: chromosomes, positions and allele count.
 }
 \examples{
-refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 PG0390 = extractCoverageFromTxt(refFile, altFile)
 
 }

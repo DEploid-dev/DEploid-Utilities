@@ -24,5 +24,10 @@
 #'
 #' @importFrom Rcpp evalCpp
 #' @importFrom scales alpha
+#' @importFrom magrittr %>%
+#' @importFrom utils read.table write.table
+#' @importFrom stats cor cov quantile sd var
+#' @importFrom graphics abline axis barplot hist image layout legend lines par points rect
+#' @importFrom grDevices adjustcolor colorRampPalette dev.off heat.colors pdf png rainbow
 #' @useDynLib DEploid.utils, .registration = TRUE
 NULL

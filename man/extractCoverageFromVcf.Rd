@@ -21,7 +21,7 @@ Extract read counts from VCF file of a single sample.
 The VCF file should only contain one sample. If more samples present in the VCF, it only returns coverage for of the first sample.
 }
 \examples{
-vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 PG0390 = extractCoverageFromVcf(vcfFile)
 
 }

@@ -1,3 +1,7 @@
 ^DEploid-Utilities\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+LICENSE
+.github
+\*\.o
+vcf/vcfReader.o

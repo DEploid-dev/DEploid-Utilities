@@ -34,15 +34,15 @@ Produce histogram of the allele frequency within sample.
 }
 \examples{
 # Example 1
-refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 obsWSAF = computeObsWSAF( PG0390CoverageTxt$altCount, PG0390CoverageTxt$refCount )
 histWSAF(obsWSAF)
 myhist = histWSAF(obsWSAF, FALSE)
 
 # Example 2
-vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
 histWSAF(obsWSAF)

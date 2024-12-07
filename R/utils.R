@@ -13,8 +13,8 @@
 #' @export
 #'
 #' @examples
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390 = extractCoverageFromTxt(refFile, altFile)
 #'
 extractCoverageFromTxt <- function ( refFileName, altFileName ){
@@ -43,7 +43,7 @@ extractCoverageFromTxt <- function ( refFileName, altFileName ){
 #' @export
 #'
 #' @examples
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390 = extractCoverageFromVcf(vcfFile)
 #'
 extractCoverageFromVcf <- function ( vcfFileName, ADFieldIndex = 2 ){
@@ -102,7 +102,7 @@ extractCoverageFromVcf <- function ( vcfFileName, ADFieldIndex = 2 ){
 #' @export
 #'
 #' @examples
-#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 #' plaf = extractPLAF(plafFile)
 #'
 extractPLAF <- function ( plafFileName ){
@@ -127,10 +127,10 @@ extractPLAF <- function ( plafFileName ){
 #' @export
 #'
 #' @examples
-#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
-#' panelFile = system.file("extdata", "labStrains.test.panel.txt", package = "DEploid")
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
+#' panelFile = system.file("extdata", "labStrains.test.panel.txt", package = "DEploid.utils")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 #' PG0390CoverageTxt.deconv = dEploid(paste("-ref", refFile, "-alt", altFile,
 #'     "-plaf", plafFile, "-noPanel"))
@@ -170,13 +170,13 @@ plotProportions <- function (proportions, title = "Components",
 #'
 #' @examples
 #' # Example 1
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 #' plotAltVsRef( PG0390CoverageTxt$refCount, PG0390CoverageTxt$altCount )
 #'
 #' # Example 2
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 #' plotAltVsRef( PG0390CoverageVcf$refCount, PG0390CoverageVcf$altCount )
 #'
@@ -230,15 +230,15 @@ plotAltVsRef <- function ( ref, alt, title = "Alt vs Ref",
 #'
 #' @examples
 #' # Example 1
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageTxt$altCount, PG0390CoverageTxt$refCount )
 #' histWSAF(obsWSAF)
 #' myhist = histWSAF(obsWSAF, FALSE)
 #'
 #' # Example 2
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
 #' histWSAF(obsWSAF)
@@ -280,19 +280,19 @@ histWSAF <- function ( obsWSAF, exclusive = TRUE,
 #'
 #' @examples
 #' # Example 1
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageTxt$altCount, PG0390CoverageTxt$refCount )
-#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 #' plaf = extractPLAF(plafFile)
 #' plotWSAFvsPLAF(plaf, obsWSAF)
 #'
 #' # Example 2
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
-#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 #' plaf = extractPLAF(plafFile)
 #' plotWSAFvsPLAF(plaf, obsWSAF)
 #'
@@ -331,10 +331,10 @@ plotWSAFvsPLAF <- function ( plaf, obsWSAF, expWSAF = c(), potentialOutliers = c
 #' @export
 #'
 #' @examples
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
-#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+#' plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 #' PG0390CoverageVcf.deconv = dEploid(paste("-vcf", vcfFile, "-plaf", plafFile, "-noPanel"))
 #' prop = PG0390CoverageVcf.deconv$Proportions[dim(PG0390CoverageVcf.deconv$Proportions)[1],]
 #' expWSAF = t(PG0390CoverageVcf.deconv$Haps) %*% prop
@@ -367,13 +367,13 @@ plotObsExpWSAF <- function (obsWSAF, expWSAF,
 #'
 #' @examples
 #' # Example 1
-#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+#' refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+#' altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageTxt$altCount, PG0390CoverageTxt$refCount )
 #'
 #' # Example 2
-#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+#' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 #' PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 #' obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
 #'

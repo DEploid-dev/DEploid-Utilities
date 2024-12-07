@@ -19,7 +19,7 @@ Extract population level allele frequency (PLAF) from text file.
 The text file must have header, and population level allele frequency recorded in the "PLAF" field.
 }
 \examples{
-plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 plaf = extractPLAF(plafFile)
 
 }

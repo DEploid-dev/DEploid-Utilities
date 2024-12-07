@@ -30,10 +30,10 @@ plotObsExpWSAF(
 Plot observed alternative allele frequency within sample against expected WSAF.
 }
 \examples{
-vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid")
+vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
 PG0390CoverageVcf = extractCoverageFromVcf(vcfFile)
 obsWSAF = computeObsWSAF( PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount )
-plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
+plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 PG0390CoverageVcf.deconv = dEploid(paste("-vcf", vcfFile, "-plaf", plafFile, "-noPanel"))
 prop = PG0390CoverageVcf.deconv$Proportions[dim(PG0390CoverageVcf.deconv$Proportions)[1],]
 expWSAF = t(PG0390CoverageVcf.deconv$Haps) \%*\% prop

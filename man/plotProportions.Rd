@@ -27,10 +27,10 @@ plotProportions(
 Plot the MCMC samples of the proportion, indexed by the MCMC chain.
 }
 \examples{
-plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid")
-panelFile = system.file("extdata", "labStrains.test.panel.txt", package = "DEploid")
-refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid")
-altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid")
+plafFile = system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
+panelFile = system.file("extdata", "labStrains.test.panel.txt", package = "DEploid.utils")
+refFile = system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
+altFile = system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 PG0390CoverageTxt = extractCoverageFromTxt(refFile, altFile)
 PG0390CoverageTxt.deconv = dEploid(paste("-ref", refFile, "-alt", altFile,
     "-plaf", plafFile, "-noPanel"))
