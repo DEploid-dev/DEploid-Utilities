@@ -5,5 +5,5 @@ OBJECTS.vcfr = rvcf.o RcppExports.o vcf/txtReader.o \
     vcf/vcfReaderDebug.o
 
 OBJECTS = $(OBJECTS.vcfr)
-PKG_CXXFLAGS = -I/usr/share/R/include/ -Ivcf/ -Ivcf/gzstream/ -DVERSION="\"R\"" -DRBUILD -DSTRICT_R_HEADERS -Wdate-time -Werror=format-security -Wformat
+PKG_CXXFLAGS = -I/usr/share/R/include/ -Ivcf/ -Ivcf/gzstream/ -DVERSION="\"R\"" -DRBUILD -DSTRICT_R_HEADERS
 PKG_LIBS = -lz
