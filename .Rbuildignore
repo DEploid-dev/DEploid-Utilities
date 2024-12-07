@@ -9,3 +9,4 @@ src/vcf/gzstream/gzstream.o
 src/vcf/txtReader.o
 src/vcf/variantIndex.o
 src/vcf/vcfReaderDebug.o
+DEploid.utils/libs/DEploid.utils.so

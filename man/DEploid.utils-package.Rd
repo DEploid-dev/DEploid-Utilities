@@ -21,7 +21,7 @@ deconvoluting mixed haplotypes, #' and reporting the mixture proportions from
 each sample.
 }
 \author{
-\strong{Maintainer}: Joe Zhu \email{sha.joe.zhu@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Joe Zhu \email{sha.joe.zhu@gmail.com} (\href{https://orcid.org/0000-0001-7566-2787}{ORCID})
 
 
 Joe Zhu
