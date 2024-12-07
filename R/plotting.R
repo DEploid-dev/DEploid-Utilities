@@ -1,4 +1,4 @@
-fun.print.help <- function(){
+fun_print_help <- function(){
     cat("    DEploid R utilities help\n")
 
     cat("
@@ -12,8 +12,8 @@ fun.print.help <- function(){
               -o STR  --  Specify the file name prefix of the output.")
 }
 
-fun.print.help.interpret <- function(){
-    fun.print.help()
+fun_print_help_interpret <- function(){
+    fun_print_help()
     cat("
        -dEprefix STR  --  Specify DEploid output file prefix.\n")
     cat("
@@ -32,8 +32,8 @@ fun.print.help.interpret <- function(){
     q(save="no")
 }
 
-fun.print.help.explore <- function(){
-    fun.print.help()
+fun_print_help_explore <- function(){
+    fun_print_help()
     cat("\n
           Example:
             ./utilities/dataExplore.r \\
@@ -43,7 +43,7 @@ fun.print.help.explore <- function(){
     q(save="no")
 }
 
-fun.parse <- function( args ){
+fun_parse <- function( args ){
     fun.local.checkAndIncreaseArgI <- function ( ){
         arg_i = arg_i+1
     }
@@ -178,7 +178,7 @@ fun.parse <- function( args ){
 }
 
 
-fun.dEploidPrefix <- function (prefix, dEploid_v = "classic" ){
+fun_dEploidPrefix <- function (prefix, dEploid_v = "classic" ){
     if ( prefix == "" ){
         stop ("dEprefix ungiven!!!")
     }
@@ -206,7 +206,7 @@ fun.dEploidPrefix <- function (prefix, dEploid_v = "classic" ){
 }
 
 
-fun.extract.coverage <- function ( inputs ){
+fun_extract_coverage <- function ( inputs ){
     if ( inputs$vcfFileName != "" ){
         return (extractCoverageFromVcf (inputs$vcfFileName, inputs$ADFieldIndex ))
     } else {
@@ -216,7 +216,7 @@ fun.extract.coverage <- function ( inputs ){
 }
 
 
-fun.extract.exclude <- function (excludeFileName, excludeBool){
+fun_extract_exclude <- function (excludeFileName, excludeBool){
     if ( excludeBool ) {
         return ( list ( excludeBool = excludeBool,
                         excludeTable = read.table(excludeFileName, header = TRUE, comment.char = "")))
@@ -226,7 +226,7 @@ fun.extract.exclude <- function (excludeFileName, excludeBool){
 }
 
 
-fun.llk <- function(cov.ref, cov.alt, f.samp, err=0.01, fac=100) {
+fun_llk <- function(cov.ref, cov.alt, f.samp, err=0.01, fac=100) {
     f.samp<-f.samp+err*(1-2*f.samp);
     llk<-lbeta(cov.alt+f.samp*fac, cov.ref+(1-f.samp)*fac)-lbeta(f.samp*fac,(1-f.samp)*fac);
     #  llk<-lgamma(fac*f.samp+cov.alt)+lgamma(fac*(1-f.samp)+cov.ref)-lgamma(fac*f.samp)-lgamma(fac*(1-f.samp));
@@ -237,18 +237,18 @@ fun.llk <- function(cov.ref, cov.alt, f.samp, err=0.01, fac=100) {
 }
 
 
-fun.dic.by.llk.var <- function ( tmpllk ){
+fun_dic_by_llk_var <- function ( tmpllk ){
      return (  mean(-2*tmpllk) + var(-2*tmpllk)/2 )# D_bar + 1/2 var (D_theta), where D_theta = -2*tmpllk, and D_bar = mean(D_theta)
 }
 
 
-fun.dic.by.theta <- function ( tmpllk, thetallk ){
+fun_dic_by_theta <- function ( tmpllk, thetallk ){
     DIC.WSAF.bar = -2 * sum(thetallk)
     return (  mean(-2*tmpllk) + (mean(-2*tmpllk) - DIC.WSAF.bar) ) # D_bar + pD, where pD = D_bar - D_theta, and D_bar = mean(D_theta)
 }
 
 
-plot.llk <- function (llkTable, ref, alt, expWSAF, title = "", cex.lab = 1, cex.main = 1, cex.axis = 1 ){
+plot_llk <- function (llkTable, ref, alt, expWSAF, title = "", cex.lab = 1, cex.main = 1, cex.axis = 1 ){
     llk = llkTable$V2
     llkEvent = llkTable$V1
 #    llk_sd = sd(llk)
@@ -270,7 +270,7 @@ plot.llk <- function (llkTable, ref, alt, expWSAF, title = "", cex.lab = 1, cex.
 }
 
 
-fun.getllk.dic <- function ( llkTable, ref, alt, expWSAF, logFileName ){
+fun_getllk_dic <- function ( llkTable, ref, alt, expWSAF, logFileName ){
     llk = llkTable$V2
     llkEvent = llkTable$V1
     llk_sd = sd(llk)
@@ -286,7 +286,7 @@ fun.getllk.dic <- function ( llkTable, ref, alt, expWSAF, logFileName ){
 }
 
 
-fun.getWSAF.corr <- function( obsWSAF, expWSAF, dicLogFileName ){
+fun_getWSAF_corr <- function( obsWSAF, expWSAF, dicLogFileName ){
     currentWSAFcov  = cov(obsWSAF, expWSAF)
     currentWSAFcorr = cor(obsWSAF, expWSAF)
 #    cat ( "corr: ",  currentWSAFcorr, "\n", file = dicLogFileName)
@@ -295,7 +295,7 @@ fun.getWSAF.corr <- function( obsWSAF, expWSAF, dicLogFileName ){
 }
 
 
-fun.find.more <- function (outliers.idx, window.size){
+fun_find_more <- function (outliers.idx, window.size){
     idx.out = c()
     for ( i in 1:length(outliers.idx)){
         near.outliers.idx = which(((outliers.idx[i] - window.size) < outliers.idx) & (outliers.idx < (outliers.idx[i] + window.size)))
@@ -310,7 +310,7 @@ fun.find.more <- function (outliers.idx, window.size){
 }
 
 
-plot.total.coverage <- function(ref, alt, chroms, cex.lab = 1, cex.main = 1, cex.axis = 1,  threshold, window.size){
+plot_total_coverage <- function(ref, alt, chroms, cex.lab = 1, cex.main = 1, cex.axis = 1,  threshold, window.size){
     totalDepth = ref + alt
     x = 1:length(totalDepth)
     tmpQ = quantile(totalDepth, threshold)
@@ -332,7 +332,7 @@ plot.total.coverage <- function(ref, alt, chroms, cex.lab = 1, cex.main = 1, cex
 }
 
 
-fun.dataExplore <- function (coverage, PLAF, prefix = "", pdfBool, threshold = 0.995, window.size = 10) {
+fun_dataExplore <- function (coverage, PLAF, prefix = "", pdfBool, threshold = 0.995, window.size = 10) {
 #    PLAF = plafInfo$PLAF
     ref = coverage$refCount
     alt = coverage$altCount
@@ -352,7 +352,7 @@ fun.dataExplore <- function (coverage, PLAF, prefix = "", pdfBool, threshold = 0
                     5,5,5), 5, 3, byrow = TRUE))
     par(mar = c(5,7,7,4))
 
-    badGuys = plot.total.coverage(ref, alt, coverage$CHROM, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize, threshold, window.size)
+    badGuys = plot_total_coverage(ref, alt, coverage$CHROM, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize, threshold, window.size)
 
     if ( length(badGuys) > 0 ){
         CHROM = coverage$CHROM[badGuys]
@@ -383,7 +383,7 @@ fun.dataExplore <- function (coverage, PLAF, prefix = "", pdfBool, threshold = 0
 }
 
 
-fun.interpretDEploid.best <- function (coverage, PLAF, dEploidPrefix, prefix = "", exclude, pdfBool ) {
+fun_interpretDEploid_best <- function (coverage, PLAF, dEploidPrefix, prefix = "", exclude, pdfBool ) {
     ref = coverage$refCount
     alt = coverage$altCount
 
@@ -435,7 +435,7 @@ fun.interpretDEploid.best <- function (coverage, PLAF, dEploidPrefix, prefix = "
 }
 
 
-fun.interpretDEploid.1 <- function (coverage, PLAF, dEploidPrefix, prefix = "", exclude, pdfBool ) {
+fun_interpretDEploid_1 <- function (coverage, PLAF, dEploidPrefix, prefix = "", exclude, pdfBool ) {
 
 #    PLAF = plafInfo$PLAF
     ref = coverage$refCount
@@ -487,7 +487,7 @@ fun.interpretDEploid.1 <- function (coverage, PLAF, dEploidPrefix, prefix = "", 
 }
 
 
-plot.wsaf.vs.index.ring <- function ( coverage, expWSAF = c(), expWSAFChrom = c(), exclude, titlePrefix = "" ){
+plot_wsaf_vs_index_ring <- function ( coverage, expWSAF = c(), expWSAFChrom = c(), exclude, titlePrefix = "" ){
     chromCol = (as.numeric(1:length(levels(coverage$CHROM)) %% 2 ))
     chromCol[chromCol==1] = NA
     chromCol[chromCol==0] = 8
@@ -518,7 +518,7 @@ plot.wsaf.vs.index.ring <- function ( coverage, expWSAF = c(), expWSAFChrom = c(
 }
 
 
-plot.wsaf.vs.index <- function ( coverage, expWSAF = c(), expWSAFChrom = c(), exclude, titlePrefix = "" ){
+plot_wsaf_vs_index <- function ( coverage, expWSAF = c(), expWSAFChrom = c(), exclude, titlePrefix = "" ){
     chromList = unique(coverage$CHROM)
     ref = coverage$refCount
     alt = coverage$altCount
@@ -562,7 +562,7 @@ plot.wsaf.vs.index <- function ( coverage, expWSAF = c(), expWSAFChrom = c(), ex
 }
 
 
-fun.interpretDEploid.2 <- function ( coverage, dEploidPrefix, prefix = "", exclude, pdfBool, ringBool = FALSE, dEploid_v = "classic"){
+fun_interpretDEploid_2 <- function ( coverage, dEploidPrefix, prefix = "", exclude, pdfBool, ringBool = FALSE, dEploid_v = "classic"){
     dEploidOutput = fun.dEploidPrefix(dEploidPrefix, dEploid_v)
     if (dEploid_v == "classic") {
         tmpProp = read.table(dEploidOutput$propFileName, header=F)
@@ -608,7 +608,7 @@ fun.interpretDEploid.2 <- function ( coverage, dEploidPrefix, prefix = "", exclu
 }
 
 
-plot.postProb.ofCase <- function ( inPrefix, outPrefix, case, strainNumber, pdfBool, inbreeding = FALSE  ){
+plot_postProb_ofCase <- function ( inPrefix, outPrefix, case, strainNumber, pdfBool, inbreeding = FALSE  ){
     if ( pdfBool == TRUE ){
         cexSize = 3
         if ( inbreeding ){
@@ -647,7 +647,7 @@ plot.postProb.ofCase <- function ( inPrefix, outPrefix, case, strainNumber, pdfB
 }
 
 
-fun.interpretDEploid.3 <- function ( inPrefix, outPrefix = "", pdfBool, inbreeding = FALSE  ){
+fun_interpretDEploid_3 <- function ( inPrefix, outPrefix = "", pdfBool, inbreeding = FALSE  ){
     strainI = 0
     while ( file.exists(paste(inPrefix, ".single", strainI, sep="")) ){
         plot.postProb.ofCase( inPrefix, outPrefix, paste("single", strainI, sep=""), strainI, pdfBool)
@@ -659,7 +659,7 @@ fun.interpretDEploid.3 <- function ( inPrefix, outPrefix = "", pdfBool, inbreedi
 }
 
 
-fun.interpretDEploid.4 <- function ( inPrefix, outPrefix = "", pdfBool ){
+fun_interpretDEploid_4 <- function ( inPrefix, outPrefix = "", pdfBool ){
     inFile = paste(inPrefix, ".ibd.probs", sep = "")
     if (!file.exists(inFile)){
         print("In file not exist")
@@ -688,7 +688,7 @@ fun.interpretDEploid.4 <- function ( inPrefix, outPrefix = "", pdfBool ){
 }
 
 
-fun.interpretDEploid.3.ring <- function (inPrefix, outPrefix = "", pdfBool, inbreeding = FALSE, coverage, exclude, ringDecreasingOrder, trackHeight = 0.8, transformP = FALSE ){
+fun_interpretDEploid_3_ring <- function (inPrefix, outPrefix = "", pdfBool, inbreeding = FALSE, coverage, exclude, ringDecreasingOrder, trackHeight = 0.8, transformP = FALSE ){
     if ( pdfBool == TRUE ){
         cexSize = 3
         if ( inbreeding ){
@@ -782,7 +782,7 @@ fun.interpretDEploid.3.ring <- function (inPrefix, outPrefix = "", pdfBool, inbr
 }
 
 
-plot.ibd.change <- function(changeAt, titlePrefix,nFigures){
+plot_ibd_change <- function(changeAt, titlePrefix,nFigures){
     plot(c(0, dim(changeAt)[1]), c(0, 1), type="n", ylim=c(0,.5), main = paste(titlePrefix, "IBD changes, and LS switches at"), ylab = "Frequency",
         cex.axis = 3.5, cex.lab = 3.5, cex.main = 4, xaxt = "n", yaxt = "n", xlab = "")
     lines(changeAt$IBDpathChangeAt, col = "red", lty=2, lwd=.5)
@@ -840,7 +840,7 @@ plot.ibd.change <- function(changeAt, titlePrefix,nFigures){
 #}
 
 
-fun.ring.plot.initialize <- function(chrom, name.suffix = ""){
+fun_ring_plot_initialize <- function(chrom, name.suffix = ""){
     circlize::circos.initialize(factor=chrom, xlim = cbind(1, table(chrom)))
     circlize::circos.trackPlotRegion(factor = chrom, ylim=c(0,1), track.height = 0.1, bg.border = NA,
         panel.fun=function(x,y){

@@ -1,5 +1,3 @@
-library(dplyr)
-
 getProportionFromLastLine <- function(fileName){
     if (!file.exists(fileName)){
         prop = NULL

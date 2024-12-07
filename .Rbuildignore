@@ -4,4 +4,8 @@
 LICENSE
 .github
 \*\.o
-vcf/vcfReader.o
+src/vcf/vcfReader.o
+src/vcf/gzstream/gzstream.o
+src/vcf/txtReader.o
+src/vcf/variantIndex.o
+src/vcf/vcfReaderDebug.o

@@ -13,7 +13,8 @@ Imports:
     plotly (>= 4.7.1),
     magrittr (>= 1.5),
     rmarkdown(>= 1.6),
-    htmlwidgets (>= 1.0)
+    htmlwidgets (>= 1.0),
+    combinat
 Suggests:
     knitr,
     testthat (>= 0.9.0)

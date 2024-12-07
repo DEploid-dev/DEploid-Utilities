@@ -29,5 +29,6 @@
 #' @importFrom stats cor cov quantile sd var
 #' @importFrom graphics abline axis barplot hist image layout legend lines par points rect
 #' @importFrom grDevices adjustcolor colorRampPalette dev.off heat.colors pdf png rainbow
+#' @importFrom combinat permn
 #' @useDynLib DEploid.utils, .registration = TRUE
 NULL
