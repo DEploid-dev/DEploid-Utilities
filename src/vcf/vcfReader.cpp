@@ -461,7 +461,7 @@ void VariantLine::extract_field_VARIANT() {
             catch (std::exception& e) {
                 std::cerr << "Error parsing vcf AD field: '"
                           << adStr << "':  " << e.what() << "\n";
-                exit(1);
+                //exit(1);
             }
         }
         feild_start = field_end+1;
