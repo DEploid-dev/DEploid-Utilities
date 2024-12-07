@@ -175,6 +175,8 @@ plotProportions <- function(proportions, title = "Components",
 #'
 #' @param cex.axis Axis text size.
 #'
+#' @param potentialOutliers Potential outliers
+#'
 #' @export
 #'
 #' @examples
@@ -291,6 +293,8 @@ histWSAF <- function(obsWSAF, exclusive = TRUE,
 #'
 #' @param cex.axis Axis text size.
 #'
+#' @param potentialOutliers Potential outliers
+#'
 #' @export
 #'
 #' @examples
@@ -406,6 +410,8 @@ computeObsWSAF <- function(alt, ref) {
 #' @param title Figure title.
 #'
 #' @param labelScaling Scaling parameter for plotting.
+#'
+#' @param numberOfInbreeding Number of inbreading strains
 #'
 #' @export
 #'

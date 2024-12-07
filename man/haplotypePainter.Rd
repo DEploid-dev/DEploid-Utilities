@@ -17,6 +17,8 @@ haplotypePainter(
 \item{title}{Figure title.}
 
 \item{labelScaling}{Scaling parameter for plotting.}
+
+\item{numberOfInbreeding}{Number of inbreading strains}
 }
 \description{
 Plot the posterior probabilities of a haplotype given the refernece panel.

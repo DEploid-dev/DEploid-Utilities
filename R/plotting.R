@@ -607,7 +607,7 @@ fun_interpretDEploid_2 <- function(coverage, dEploidPrefix, prefix = "", exclude
       cexSize <- 2.5
       png(paste(prefix, ".interpretDEploidFigure.2.ring.png", sep = ""), width = 3500, height = 3500)
     }
-    fun_ring.plot_initialize(hapInfo$CHROM)
+    fun_ring_plot_initialize(hapInfo$CHROM)
     plot_wsaf_vs_index_ring(coverage, expWSAF, hapChrom, exclude)
 
     circlize::circos.clear()
@@ -766,7 +766,7 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
         hap <- as.matrix(hapInfo[, -c(1, 2)])
         expWSAF <- hap %*% lastProp
 
-        plot_wsaf_vs_index.ring(coverage, expWSAF, hapChrom, exclude)
+        plot_wsaf_vs_index_ring(coverage, expWSAF, hapChrom, exclude)
       }
     }
 

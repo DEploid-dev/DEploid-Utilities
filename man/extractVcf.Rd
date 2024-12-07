@@ -8,6 +8,8 @@ extractVcf(filename, samplename)
 }
 \arguments{
 \item{filename}{VCF file name.}
+
+\item{samplename}{Sample name}
 }
 \value{
 A dataframe list with members of haplotypes, proportions and log likelihood of the MCMC chain.

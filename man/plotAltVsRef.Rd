@@ -27,6 +27,8 @@ plotAltVsRef(
 
 \item{exclude.alt}{Numeric array of alternative allele count at sites that are not deconvoluted}
 
+\item{potentialOutliers}{Potential outliers}
+
 \item{cex.lab}{Label size.}
 
 \item{cex.main}{Title size.}

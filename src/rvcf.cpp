@@ -43,6 +43,8 @@ class Rvcf : public VcfReader{
 //'
 //' @param filename VCF file name.
 //'
+//' @param samplename Sample name
+//'
 //' @seealso
 //' \itemize{
 //'   \item \code{extractCoverageFromVcf}
