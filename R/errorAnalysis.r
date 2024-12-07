@@ -3,7 +3,7 @@ getProportionFromLastLine <- function(fileName) {
     prop <- NULL
   } else {
     prop <- system(paste("tail -n1", fileName), intern = T) %>%
-      strsplit(., "\t") %>%
+      strsplit("\t") %>%
       unlist() %>%
       as.numeric()
   }
