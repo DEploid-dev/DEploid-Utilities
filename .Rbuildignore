@@ -12,3 +12,4 @@ src/vcf/vcfReaderDebug.o
 DEploid.utils/libs/DEploid.utils.so
 \*\.png
 \*\.pdf
+DEploid-vcf-lib
