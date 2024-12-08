@@ -63,10 +63,10 @@ class Rvcf : public VcfReader{
 //'
 //' @examples
 //' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-//' vcf = extractVcf(vcfFile, "PG0390-C")
+//' vcf = extractCoverageFromVcf(vcfFile, "PG0390-C")
 //'
 // [[Rcpp::export]]
-Rcpp::DataFrame extractVcf(std::string filename, std::string samplename) {
+Rcpp::DataFrame extractCoverageFromVcf(std::string filename, std::string samplename) {
     Rvcf vcf(filename, samplename);
     return vcf.info();
 }

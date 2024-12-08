@@ -7,7 +7,7 @@ panelFileName <- system.file("extdata", "labStrains.test.panel.txt",
 refFileName <- system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
 altFileName <- system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFileName)
+PG0390CoverageVcf <- extractCoverageFromVcf(vcfFileName, "PG0390-C")
 plaf <- extractPLAF(plafFileName)
 
 

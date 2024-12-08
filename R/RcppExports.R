@@ -27,9 +27,9 @@
 #'
 #' @examples
 #' vcfFile = system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-#' vcf = extractVcf(vcfFile, "PG0390-C")
+#' vcf = extractCoverageFromVcf(vcfFile, "PG0390-C")
 #'
-extractVcf <- function(filename, samplename) {
-    .Call(`_DEploid_utils_extractVcf`, filename, samplename)
+extractCoverageFromVcf <- function(filename, samplename) {
+    .Call(`_DEploid_utils_extractCoverageFromVcf`, filename, samplename)
 }
 

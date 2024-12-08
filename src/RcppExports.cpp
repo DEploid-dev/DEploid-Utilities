@@ -10,21 +10,21 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// extractVcf
-Rcpp::DataFrame extractVcf(std::string filename, std::string samplename);
-RcppExport SEXP _DEploid_utils_extractVcf(SEXP filenameSEXP, SEXP samplenameSEXP) {
+// extractCoverageFromVcf
+Rcpp::DataFrame extractCoverageFromVcf(std::string filename, std::string samplename);
+RcppExport SEXP _DEploid_utils_extractCoverageFromVcf(SEXP filenameSEXP, SEXP samplenameSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type filename(filenameSEXP);
     Rcpp::traits::input_parameter< std::string >::type samplename(samplenameSEXP);
-    rcpp_result_gen = Rcpp::wrap(extractVcf(filename, samplename));
+    rcpp_result_gen = Rcpp::wrap(extractCoverageFromVcf(filename, samplename));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_DEploid_utils_extractVcf", (DL_FUNC) &_DEploid_utils_extractVcf, 2},
+    {"_DEploid_utils_extractCoverageFromVcf", (DL_FUNC) &_DEploid_utils_extractCoverageFromVcf, 2},
     {NULL, NULL, 0}
 };
 

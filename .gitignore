@@ -39,3 +39,6 @@ rsconnect/
 *o
 *bak
 .Rproj.user
+
+*png
+Rplots.pdf
