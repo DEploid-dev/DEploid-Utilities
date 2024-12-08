@@ -13,3 +13,4 @@ DEploid.utils/libs/DEploid.utils.so
 \*\.png
 \*\.pdf
 DEploid-vcf-lib
+codecov.yml
