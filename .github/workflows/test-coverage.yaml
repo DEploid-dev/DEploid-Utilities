@@ -41,7 +41,7 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.REPO_CODECOV_TOKEN }}
 
       - name: Show testthat output
         if: always()
