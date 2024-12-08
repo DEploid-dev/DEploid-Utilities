@@ -4,9 +4,9 @@
 \name{DEploid.utils-package}
 \alias{DEploid.utils}
 \alias{DEploid.utils-package}
-\title{DEploid.utils: What the Package Does (One Line, Title Case)}
+\title{DEploid.utils: Utility Functions for 'DEploid' Data Analysis and Results Interpretation}
 \description{
-What the package does (one paragraph).
+'dEploid' is designed for deconvoluting mixed genomes with unknown proportions. Traditional ‘phasing’ programs are limited to diploid organisms. Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo (MCMC) approaches, and builds a generic framework that allows haloptype searches in a multiple infection setting. This package provides R functions to support data analysis and results interpretation.
 
 Traditional phasing programs are limited to diploid organisms.
 Our method modifies Li and Stephens algorithm with Markov chain Monte Carlo

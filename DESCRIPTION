@@ -1,10 +1,15 @@
 Package: DEploid.utils
-Title: What the Package Does (One Line, Title Case)
+Title: Utility Functions for 'DEploid' Data Analysis and Results Interpretation  
 Version: 0.0.0.9000
 Authors@R: 
     person("Joe", "Zhu", , "sha.joe.zhu@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7566-2787"))
-Description: What the package does (one paragraph).
+Description: 'dEploid' is designed for deconvoluting mixed genomes with unknown 
+    proportions. Traditional ‘phasing’ programs are limited to diploid organisms. 
+    Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo
+    (MCMC) approaches, and builds a generic framework that allows haloptype
+    searches in a multiple infection setting. This package provides R functions
+    to support data analysis and results interpretation.  
 Depends:
     R (>= 3.1.0)
 Imports:

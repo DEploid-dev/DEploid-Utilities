@@ -47,7 +47,7 @@ plotAltVsRef(PG0390CoverageTxt$refCount, PG0390CoverageTxt$altCount)
 
 # Example 2
 vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 plotAltVsRef(PG0390CoverageVcf$refCount, PG0390CoverageVcf$altCount)
 
 }
