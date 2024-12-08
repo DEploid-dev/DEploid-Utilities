@@ -72,11 +72,11 @@ extractPLAF <- function(plafFileName) {
 #' refFile <- system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
 #' altFile <- system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
 #' PG0390CoverageTxt <- extractCoverageFromTxt(refFile, altFile)
-#' #PG0390CoverageTxt.deconv <- dEploid(paste(
+#' # PG0390CoverageTxt.deconv <- dEploid(paste(
 #' #   "-ref", refFile, "-alt", altFile,
 #' #   "-plaf", plafFile, "-noPanel"
-#' #))
-#' #plotProportions(PG0390CoverageTxt.deconv$Proportions, "PG0390-C proportions")
+#' # ))
+#' # plotProportions(PG0390CoverageTxt.deconv$Proportions, "PG0390-C proportions")
 #'
 plotProportions <- function(proportions, title = "Components",
                             cex.lab = 1, cex.main = 1, cex.axis = 1) {
@@ -189,7 +189,7 @@ plotAltVsRef <- function(ref, alt, title = "Alt vs Ref",
 #'
 #' # Example 2
 #' vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 #' obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 #' histWSAF(obsWSAF)
 #' myhist <- histWSAF(obsWSAF, FALSE)
@@ -244,7 +244,7 @@ histWSAF <- function(obsWSAF, exclusive = TRUE,
 #'
 #' # Example 2
 #' vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 #' obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 #' plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 #' plaf <- extractPLAF(plafFile)
@@ -328,7 +328,7 @@ plotObsExpWSAF <- function(obsWSAF, expWSAF,
 #'
 #' # Example 2
 #' vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 #' obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 #'
 computeObsWSAF <- function(alt, ref) {

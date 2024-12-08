@@ -47,7 +47,7 @@ plotWSAFvsPLAF(plaf, obsWSAF)
 
 # Example 2
 vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 plaf <- extractPLAF(plafFile)

@@ -1,16 +1,3 @@
-vcfFileName <- system.file("extdata", "PG0390-C.test.vcf.gz",
-                           package = "DEploid.utils")
-plafFileName <- system.file("extdata", "labStrains.test.PLAF.txt",
-                            package = "DEploid.utils")
-panelFileName <- system.file("extdata", "labStrains.test.panel.txt",
-                             package = "DEploid.utils")
-refFileName <- system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
-altFileName <- system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
-
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFileName, "PG0390-C")
-plaf <- extractPLAF(plafFileName)
-
-
 test_that("Extracted coverage", {
   PG0390CoverageTxt <- extractCoverageFromTxt(refFileName, altFileName)
   expect_that(PG0390CoverageTxt, is_a("data.frame"))
@@ -35,8 +22,10 @@ test_that("computeObsWSAF", {
 
 
 test_that("WSAF Related", {
-  obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount,
-                            PG0390CoverageVcf$refCount)
+  obsWSAF <- computeObsWSAF(
+    PG0390CoverageVcf$altCount,
+    PG0390CoverageVcf$refCount
+  )
   potentialOutliers <- c(5, 12, 25, 30, 35, 50)
 
   expect_that(histWSAF(obsWSAF), is_a("histogram"))
@@ -53,8 +42,10 @@ test_that("WSAF Related", {
 
 
 test_that("plotAltVsRef", {
-  expect_null(plotAltVsRef(PG0390CoverageVcf$refCount,
-                           PG0390CoverageVcf$altCount))
+  expect_null(plotAltVsRef(
+    PG0390CoverageVcf$refCount,
+    PG0390CoverageVcf$altCount
+  ))
   png("AltVsRef.png")
   plotAltVsRef(PG0390CoverageVcf$refCount, PG0390CoverageVcf$altCount)
   dev.off()
@@ -64,11 +55,12 @@ test_that("plotAltVsRef", {
 test_that("plotAltVsRefWithOutliers", {
   potentialOutliers <- c(1, 10, 20, 30, 40)
   expect_null(plotAltVsRef(PG0390CoverageVcf$refCount,
-                           PG0390CoverageVcf$altCount,
-                           potentialOutliers = potentialOutliers))
+    PG0390CoverageVcf$altCount,
+    potentialOutliers = potentialOutliers
+  ))
   png("AltVsRefOutlier.png")
   plotAltVsRef(PG0390CoverageVcf$refCount, PG0390CoverageVcf$altCount,
-               potentialOutliers = potentialOutliers)
+    potentialOutliers = potentialOutliers
+  )
   dev.off()
 })
-

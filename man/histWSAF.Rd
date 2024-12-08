@@ -43,7 +43,7 @@ myhist <- histWSAF(obsWSAF, FALSE)
 
 # Example 2
 vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 histWSAF(obsWSAF)
 myhist <- histWSAF(obsWSAF, FALSE)
