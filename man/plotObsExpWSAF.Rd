@@ -31,7 +31,7 @@ Plot observed alternative allele frequency within sample against expected WSAF.
 }
 \examples{
 vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile)
+PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
 obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
 plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
 # this example is not finished
