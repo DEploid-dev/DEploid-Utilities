@@ -17,45 +17,45 @@ if (!exists("dEploidRootDir")){
 
 args = (commandArgs(TRUE))
 print(args)
-myInput = fun_parse ( args )
+myInput = DEploid.utils:::fun_parse ( args )
 
 if (myInput$helpBool){
-    fun.print.help.interpret()
+  DEploid.utils:::fun_print_help_interpret()
 }
 
-myCoverageInfo = fun_extract_coverage ( myInput )
+myCoverageInfo = DEploid.utils:::fun_extract_coverage ( myInput )
 
 myPlafInfo = extractPLAF( myInput$plafFileName )
 
-myExcludeInfo = fun_extract_exclude (myInput$excludeFileName, myInput$excludeBool)
+myExcludeInfo = DEploid.utils:::fun_extract_exclude (myInput$excludeFileName, myInput$excludeBool)
 
 if (myInput$dEploid_v == "best") {
-    fun_interpretDEploid_best(myCoverageInfo, myPlafInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
-    fun_interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool, ringBool = FALSE, myInput$dEploid_v)
+  DEploid.utils:::fun_interpretDEploid_best(myCoverageInfo, myPlafInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
+  DEploid.utils:::fun_interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool, ringBool = FALSE, myInput$dEploid_v)
 } else {
     if ( myInput$skip1Bool == FALSE ){
-        fun.interpretDEploid_1 (myCoverageInfo, myPlafInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
+      DEploid.utils:::fun_interpretDEploid_1 (myCoverageInfo, myPlafInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
     }
 
-    fun.interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
+  DEploid.utils:::fun_interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool)
 
-    fun.interpretDEploid_3 (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool, myInput$inbreedingBool)
+  DEploid.utils:::fun_interpretDEploid_3 (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool, myInput$inbreedingBool)
 
-    fun.interpretDEploid_4 (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool)
+  DEploid.utils:::fun_interpretDEploid_4 (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool)
 
     if (myInput$ringBool == TRUE){
-        fun.interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool, myInput$ringBool)
-        fun.interpretDEploid_3.ring (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool, myInput$inbreedingBool, myCoverageInfo, myExcludeInfo, myInput$ringDecreasingOrder, myInput$trackHeight, myInput$transformP)
+      DEploid.utils:::fun_interpretDEploid_2 (myCoverageInfo, myInput$dEploidPrefix, myInput$outPrefix, myExcludeInfo, myInput$pdfBool, myInput$ringBool)
+      DEploid.utils:::fun_interpretDEploid_3.ring (myInput$dEploidPrefix, myInput$outPrefix, myInput$pdfBool, myInput$inbreedingBool, myCoverageInfo, myExcludeInfo, myInput$ringDecreasingOrder, myInput$trackHeight, myInput$transformP)
     }
 
     if (myInput$ibdBool == TRUE){
         if ( myInput$skip1Bool == FALSE ){
-            fun.interpretDEploid_1 (myCoverageInfo, myPlafInfo, paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myExcludeInfo, myInput$pdfBool)
+          DEploid.utils:::fun_interpretDEploid_1 (myCoverageInfo, myPlafInfo, paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myExcludeInfo, myInput$pdfBool)
         }
 
-        fun.interpretDEploid_2 (myCoverageInfo, paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myExcludeInfo, myInput$pdfBool)
+      DEploid.utils:::fun_interpretDEploid_2 (myCoverageInfo, paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myExcludeInfo, myInput$pdfBool)
 
-        fun.interpretDEploid_3 (paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myInput$pdfBool, myInput$inbreedingBool)
+      DEploid.utils:::fun_interpretDEploid_3 (paste(myInput$dEploidPrefix, ".ibd", sep=""), paste(myInput$outPrefix, ".ibd", sep=""), myInput$pdfBool, myInput$inbreedingBool)
 
     }
 }

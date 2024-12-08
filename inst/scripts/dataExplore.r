@@ -14,14 +14,14 @@ rm(list=ls()); library("DEploid.utils")
 
 args = (commandArgs(TRUE))
 
-myInput = fun_parse ( args )
+myInput = DEploid.utils:::fun_parse ( args )
 
 if (myInput$helpBool){
     fun.print.help.explore()
 }
 
-myCoverageInfo = fun_extract_coverage ( myInput )
+myCoverageInfo = DEploid.utils:::fun_extract_coverage ( myInput )
 
 myPlafInfo = extractPLAF( myInput$plafFileName )
 
-fun_dataExplore (myCoverageInfo, myPlafInfo, myInput$outPrefix, myInput$pdfBool, myInput$filter.threshold, myInput$filter.window)
+DEploid.utils:::fun_dataExplore (myCoverageInfo, myPlafInfo, myInput$outPrefix, myInput$pdfBool, myInput$filter.threshold, myInput$filter.window)
