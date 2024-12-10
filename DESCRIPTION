@@ -4,7 +4,7 @@ Version: 0.0.1
 Authors@R: 
     person("Joe", "Zhu", , "sha.joe.zhu@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7566-2787"))
-Description: 'dEploid' is designed for deconvoluting mixed genomes with unknown 
+Description: 'DEploid' is designed for deconvoluting mixed genomes with unknown 
     proportions. Traditional ‘phasing’ programs are limited to diploid organisms. 
     Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo
     (MCMC) approaches, and builds a generic framework that allows haloptype
@@ -22,7 +22,6 @@ Suggests:
     rmarkdown(>= 1.6),
     circlize,
     testthat (>= 0.9.0)
-VignetteBuilder: knitr
 LinkingTo: Rcpp
 RoxygenNote: 7.3.2
 Encoding: UTF-8
