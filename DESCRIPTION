@@ -1,6 +1,6 @@
 Package: DEploid.utils
 Title: Utility Functions for 'DEploid' Data Analysis and Results Interpretation  
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Joe", "Zhu", , "sha.joe.zhu@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7566-2787"))
