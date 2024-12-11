@@ -1,8 +1,10 @@
-OBJECTS.vcfr = rvcf.o RcppExports.o vcf/txtReader.o \
-^Ivcf/variantIndex.o \
-^Ivcf/vcfReader.o \
-^Ivcf/gzstream/gzstream.o \
-^Ivcf/vcfReaderDebug.o
+OBJECTS.vcfr = rvcf.o \
+  RcppExports.o \
+  vcf/txtReader.o \
+  vcf/variantIndex.o \
+  vcf/vcfReader.o \
+  vcf/gzstream/gzstream.o \
+  vcf/vcfReaderDebug.o
 
 OBJECTS = $(OBJECTS.vcfr)
 PKG_CXXFLAGS = -I/usr/share/R/include/ -Ivcf/ -Ivcf/gzstream/ -DVERSION="\"R\"" -DRBUILD -DSTRICT_R_HEADERS
