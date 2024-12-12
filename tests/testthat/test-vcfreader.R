@@ -29,7 +29,7 @@ test_that("WSAF Related", {
   potentialOutliers <- c(5, 12, 25, 30, 35, 50)
 
   expect_that(histWSAF(obsWSAF), is_a("histogram"))
-  png(paste0(tempdir(), "histWSAF.png"))
+  png(paste0(tempdir(), "/histWSAF.png"))
   histWSAF(obsWSAF)
   dev.off()
 
