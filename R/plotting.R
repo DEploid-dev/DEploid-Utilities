@@ -26,7 +26,7 @@ fun_llk <- function(cov.ref, cov.alt, f.samp, err = 0.01, fac = 100) {
   llk <- lbeta(cov.alt + f.samp * fac, cov.ref + (1 - f.samp) * fac) - lbeta(f.samp * fac, (1 - f.samp) * fac)
   #  llk<-lgamma(fac*f.samp+cov.alt)+lgamma(fac*(1-f.samp)+cov.ref)-lgamma(fac*f.samp)-lgamma(fac*(1-f.samp));
   if (sum(is.nan(llk)) > 1) {
-    print("f.samp = ")
+    message("f.samp = ")
   }
   return(llk)
 }
@@ -152,6 +152,7 @@ fun_dataExplore <- function(coverage, PLAF, prefix = "", pdfBool, threshold = 0.
     2, 3, 4,
     5, 5, 5
   ), 5, 3, byrow = TRUE))
+  oldpar <- par(no.readonly = TRUE)
   par(mar = c(5, 7, 7, 4))
 
   badGuys <- plot_total_coverage(ref, alt, coverage$CHROM, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize, threshold, window.size)
@@ -184,6 +185,7 @@ fun_dataExplore <- function(coverage, PLAF, prefix = "", pdfBool, threshold = 0.
   )
   points(obsWSAF, cex = 0.5)
   dev.off()
+  on.exit(par(oldpar))
 }
 
 
@@ -195,6 +197,7 @@ fun_interpretDEploid_best <- function(coverage, PLAF, dEploidPrefix, prefix = ""
   cexSize <- 2.5
 
   png(paste(prefix, ".interpretDEploidFigure.1.png", sep = ""), width = 1500, height = 3750)
+  oldpar <- par(no.readonly = TRUE)
   par(mar = c(5, 7, 7, 4))
   par(mfrow = c(5, 2))
   ##################################################################################################
@@ -236,6 +239,7 @@ fun_interpretDEploid_best <- function(coverage, PLAF, dEploidPrefix, prefix = ""
   tmpTitle <- fun_getWSAF_corr(obsWSAF, expWSAF, "")
   plotObsExpWSAF(obsWSAF, expWSAF, tmpTitle, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize)
   dev.off()
+  on.exit(par(oldpar))
 }
 
 
@@ -259,7 +263,7 @@ fun_interpretDEploid_1 <- function(coverage, PLAF, dEploidPrefix, prefix = "", e
     cexSize <- 2.5
     png(paste(prefix, ".interpretDEploidFigure.1.png", sep = ""), width = 1500, height = 1000)
   }
-
+  oldpar <- par(no.readonly = TRUE)
   par(mar = c(5, 7, 7, 4))
   par(mfrow = c(2, 3))
   plotAltVsRef(ref, alt, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize)
@@ -285,8 +289,8 @@ fun_interpretDEploid_1 <- function(coverage, PLAF, dEploidPrefix, prefix = "", e
 
   tmpTitle <- fun_getllk_dic(llkTable, ref, alt, expWSAF, dEploidOutput$dicLogFileName)
   plot_llk(llkTable, ref, alt, expWSAF, tmpTitle, cex.lab = cexSize, cex.main = cexSize, cex.axis = cexSize)
-
   dev.off()
+  on.exit(par(oldpar))
 }
 
 
@@ -329,7 +333,7 @@ plot_wsaf_vs_index <- function(coverage, expWSAF = c(), expWSAFChrom = c(), excl
   nFigures <- length(chromList)
   totalCoverage <- alt + ref
   for (chromI in chromList) {
-    print(chromI)
+    message(chromI)
     tmpWSAF <- obsWSAF[coverage$CHROM == chromI]
     colorFrac <- (totalCoverage[coverage$CHROM == chromI]) / 50
     colorTrans <- unlist(lapply(colorFrac, function(x) {
@@ -362,10 +366,6 @@ plot_wsaf_vs_index <- function(coverage, expWSAF = c(), expWSAFChrom = c(), excl
       } else {
         plotIndex <- c(1:length(obsWSAF[coverage$CHROM == chromI]))
       }
-      #            print(length(plotIndex))
-      #            print(length(expWSAF))
-      #            print(length(expWSAF[expWSAFChrom == chromI]))
-      #            print("##########")
       colorTrans <- unlist(lapply(colorFrac, function(x) {
         adjustcolor("blue", alpha.f = x)
       }))[plotIndex]
@@ -412,10 +412,12 @@ fun_interpretDEploid_2 <- function(coverage, dEploidPrefix, prefix = "", exclude
     }
     chromName <- levels(coverage$CHROM)
     ncol <- ceiling(length(chromName) / 2)
+    oldpar <- par(no.readonly = TRUE)
     par(mar = c(5, 7, 7, 4))
     par(mfrow = c(ncol, length(chromName) / ncol))
     plot_wsaf_vs_index(coverage, expWSAF, hapChrom, exclude)
     dev.off()
+    on.exit(par(oldpar))
   }
 }
 
@@ -439,6 +441,7 @@ plot_postProb_ofCase <- function(inPrefix, outPrefix, case, strainNumber, pdfBoo
   obj <- read.table(paste(inPrefix, ".", case, sep = ""), header = T)
   chromName <- levels(obj$CHROM)
   ncol <- ceiling(length(chromName) / 2)
+  oldpar <- par(no.readonly = TRUE)
   par(mfrow = c(ncol, length(chromName) / ncol))
   par(mar = c(5, 7, 7, 4))
   nFigures <- length(chromName)
@@ -457,6 +460,7 @@ plot_postProb_ofCase <- function(inPrefix, outPrefix, case, strainNumber, pdfBoo
     }
   }
   dev.off()
+  on.exit(par(oldpar))
 }
 
 
@@ -475,7 +479,7 @@ fun_interpretDEploid_3 <- function(inPrefix, outPrefix = "", pdfBool, inbreeding
 fun_interpretDEploid_4 <- function(inPrefix, outPrefix = "", pdfBool) {
   inFile <- paste(inPrefix, ".ibd.probs", sep = "")
   if (!file.exists(inFile)) {
-    print("In file not exist")
+    warning("In file not exist")
     return()
   }
 
@@ -489,6 +493,7 @@ fun_interpretDEploid_4 <- function(inPrefix, outPrefix = "", pdfBool) {
   obj <- read.table(inFile, header = T)
   chromName <- levels(obj$CHROM)
   ncol <- ceiling(length(chromName) / 2)
+  oldpar <- par(no.readonly = TRUE)
   par(mfrow = c(ncol, length(chromName) / ncol))
   par(mar = c(5, 7, 7, 4))
   nFigures <- length(chromName)
@@ -499,6 +504,7 @@ fun_interpretDEploid_4 <- function(inPrefix, outPrefix = "", pdfBool) {
     )
   }
   dev.off()
+  on.exit(par(oldpar))
 }
 
 
@@ -534,7 +540,6 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
   if (transformP) {
     orderedProp.p <- orderedProp.p %*% (diag(rep(1, length(orderedProp.p))) + 1)
     orderedProp.p <- orderedProp.p / sum(orderedProp.p)
-    print(orderedProp.p)
   }
 
   first <- myOrder[1]
@@ -580,7 +585,6 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
           rainbowColors <- rainbow(rainbowColorBin)
         }
         nSnp <- dim(chromRegion)[1]
-        print(nSnp)
         nhap <- dim(chromRegion)[2] - 2
         cumProb <- rep(0, nSnp)
         for (i in 1:nhap) {

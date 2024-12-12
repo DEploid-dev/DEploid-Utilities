@@ -35,6 +35,9 @@ plotAltVsRef(
 
 \item{cex.axis}{Axis text size.}
 }
+\value{
+No return value called for side effects
+}
 \description{
 Plot alternative allele count vs reference allele count at each site.
 }

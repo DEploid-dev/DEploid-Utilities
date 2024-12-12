@@ -23,19 +23,9 @@ plotProportions(
 
 \item{cex.axis}{Axis text size.}
 }
+\value{
+No return value called for side effects
+}
 \description{
 Plot the MCMC samples of the proportion, indexed by the MCMC chain.
-}
-\examples{
-plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
-panelFile <- system.file("extdata", "labStrains.test.panel.txt", package = "DEploid.utils")
-refFile <- system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
-altFile <- system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
-PG0390CoverageTxt <- extractCoverageFromTxt(refFile, altFile)
-# PG0390CoverageTxt.deconv <- dEploid(paste(
-#   "-ref", refFile, "-alt", altFile,
-#   "-plaf", plafFile, "-noPanel"
-# ))
-# plotProportions(PG0390CoverageTxt.deconv$Proportions, "PG0390-C proportions")
-
 }

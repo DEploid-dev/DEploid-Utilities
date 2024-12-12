@@ -135,6 +135,7 @@ dEploidOutError_3 <- function(h.pair, h.pair.true, rel.cost.switch = 2, do.plot 
   }
 
   if (do.plot) {
+    oldpar <- par(no.readonly = TRUE)
     par(mfrow = c(2, 1))
     plot(0, 0, type = "n", xlab = "Position", ylab = "", yaxt = "n", xlim = c(0, ncol(h.pair)), bty = "n", ylim = c(-0.5, 1.5))
     image(
@@ -152,6 +153,7 @@ dEploidOutError_3 <- function(h.pair, h.pair.true, rel.cost.switch = 2, do.plot 
       }
     }
     image(t(op))
+    on.exit(par(oldpar))
   }
 
   k.eff.permn <- rep(0, n.permn)

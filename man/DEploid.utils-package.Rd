@@ -4,9 +4,9 @@
 \name{DEploid.utils-package}
 \alias{DEploid.utils}
 \alias{DEploid.utils-package}
-\title{DEploid.utils: Utility Functions for 'DEploid' Data Analysis and Results Interpretation}
+\title{DEploid.utils: 'DEploid' Data Analysis and Results Interpretation}
 \description{
-'DEploid' is designed for deconvoluting mixed genomes with unknown proportions. Traditional ‘phasing’ programs are limited to diploid organisms. Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo (MCMC) approaches, and builds a generic framework that allows haloptype searches in a multiple infection setting. This package provides R functions to support data analysis and results interpretation.
+'DEploid' (Zhu et.al. 2018 \doi{ https://doi.org/10.1093/bioinformatics/btx530}) is designed for deconvoluting mixed genomes with unknown proportions. Traditional phasing programs are limited to diploid organisms. Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo (MCMC) approaches, and builds a generic framework that allows haloptype searches in a multiple infection setting. This package provides R functions to support data analysis and results interpretation.
 
 Traditional phasing programs are limited to diploid organisms.
 Our method modifies Li and Stephens algorithm with Markov chain Monte Carlo
@@ -22,6 +22,21 @@ each sample.
 }
 \author{
 \strong{Maintainer}: Joe Zhu \email{sha.joe.zhu@gmail.com} (\href{https://orcid.org/0000-0001-7566-2787}{ORCID})
+
+Authors:
+\itemize{
+  \item Jacob Almagro-Garcia
+  \item Gil McVean
+}
+
+Other contributors:
+\itemize{
+  \item University of Oxford [copyright holder]
+  \item Yinghan Liu [contributor]
+  \item CodeCogs Zyba Ltd [compiler, copyright holder]
+  \item Deepak Bandyopadhyay [compiler, copyright holder]
+  \item Lutz Kettner [compiler, copyright holder]
+}
 
 
 Joe Zhu

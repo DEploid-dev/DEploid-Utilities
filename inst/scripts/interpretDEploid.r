@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-rm(list=ls()); library("DEploid.utils")
+library("DEploid.utils")
 # DESCRIPTION:
 #
 # USAGE:

@@ -64,20 +64,9 @@ extractPLAF <- function(plafFileName) {
 #'
 #' @param cex.axis Axis text size.
 #'
+#' @return No return value called for side effects
+#'
 #' @export
-#'
-#' @examples
-#' plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
-#' panelFile <- system.file("extdata", "labStrains.test.panel.txt", package = "DEploid.utils")
-#' refFile <- system.file("extdata", "PG0390-C.test.ref", package = "DEploid.utils")
-#' altFile <- system.file("extdata", "PG0390-C.test.alt", package = "DEploid.utils")
-#' PG0390CoverageTxt <- extractCoverageFromTxt(refFile, altFile)
-#' # PG0390CoverageTxt.deconv <- dEploid(paste(
-#' #   "-ref", refFile, "-alt", altFile,
-#' #   "-plaf", plafFile, "-noPanel"
-#' # ))
-#' # plotProportions(PG0390CoverageTxt.deconv$Proportions, "PG0390-C proportions")
-#'
 plotProportions <- function(proportions, title = "Components",
                             cex.lab = 1, cex.main = 1, cex.axis = 1) {
   rainbowColorBin <- 16
@@ -111,6 +100,8 @@ plotProportions <- function(proportions, title = "Components",
 #' @param cex.axis Axis text size.
 #'
 #' @param potentialOutliers Potential outliers
+#'
+#' @return No return value called for side effects
 #'
 #' @export
 #'
@@ -230,6 +221,8 @@ histWSAF <- function(obsWSAF, exclusive = TRUE,
 #'
 #' @param potentialOutliers Potential outliers
 #'
+#' @return No return value called for side effects
+#'
 #' @export
 #'
 #' @examples
@@ -284,14 +277,9 @@ plotWSAFvsPLAF <- function(plaf, obsWSAF, expWSAF = c(), potentialOutliers = c()
 #'
 #' @param cex.axis Axis text size.
 #'
-#' @export
+#' @return No return value called for side effects
 #'
-#' @examples
-#' vcfFile <- system.file("extdata", "PG0390-C.test.vcf.gz", package = "DEploid.utils")
-#' PG0390CoverageVcf <- extractCoverageFromVcf(vcfFile, "PG0390-C")
-#' obsWSAF <- computeObsWSAF(PG0390CoverageVcf$altCount, PG0390CoverageVcf$refCount)
-#' plafFile <- system.file("extdata", "labStrains.test.PLAF.txt", package = "DEploid.utils")
-#' # this example is not finished
+#' @export
 plotObsExpWSAF <- function(obsWSAF, expWSAF,
                            title = "WSAF(observed vs expected)",
                            cex.lab = 1, cex.main = 1, cex.axis = 1) {
@@ -347,6 +335,8 @@ computeObsWSAF <- function(alt, ref) {
 #' @param labelScaling Scaling parameter for plotting.
 #'
 #' @param numberOfInbreeding Number of inbreading strains
+#'
+#' @return No return value called for side effects
 #'
 #' @export
 #'

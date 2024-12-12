@@ -32,6 +32,9 @@ plotWSAFvsPLAF(
 
 \item{cex.axis}{Axis text size.}
 }
+\value{
+No return value called for side effects
+}
 \description{
 Plot allele frequencies within sample against population level.
 }

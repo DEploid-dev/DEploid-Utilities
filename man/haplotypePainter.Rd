@@ -20,6 +20,9 @@ haplotypePainter(
 
 \item{numberOfInbreeding}{Number of inbreading strains}
 }
+\value{
+No return value called for side effects
+}
 \description{
 Plot the posterior probabilities of a haplotype given the refernece panel.
 }
