@@ -6,7 +6,7 @@
 \alias{DEploid.utils-package}
 \title{DEploid.utils: 'DEploid' Data Analysis and Results Interpretation}
 \description{
-'DEploid' (Zhu et.al. 2018 \doi{ https://doi.org/10.1093/bioinformatics/btx530}) is designed for deconvoluting mixed genomes with unknown proportions. Traditional phasing programs are limited to diploid organisms. Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo (MCMC) approaches, and builds a generic framework that allows haloptype searches in a multiple infection setting. This package provides R functions to support data analysis and results interpretation.
+'DEploid' (Zhu et.al. 2018 \doi{10.1093/bioinformatics/btx530}) is designed for deconvoluting mixed genomes with unknown proportions. Traditional phasing programs are limited to diploid organisms. Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo (MCMC) approaches, and builds a generic framework that allows haloptype searches in a multiple infection setting. This package provides R functions to support data analysis and results interpretation.
 
 Traditional phasing programs are limited to diploid organisms.
 Our method modifies Li and Stephens algorithm with Markov chain Monte Carlo

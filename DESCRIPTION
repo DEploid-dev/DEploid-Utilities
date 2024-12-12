@@ -12,7 +12,7 @@ Authors@R: c(
     person('Deepak', 'Bandyopadhyay', role=c('com', "cph")),
     person('Lutz', 'Kettner', role=c('com', "cph"))
     )
-Description: 'DEploid' (Zhu et.al. 2018 <doi: https://doi.org/10.1093/bioinformatics/btx530>)
+Description: 'DEploid' (Zhu et.al. 2018 <doi:10.1093/bioinformatics/btx530>)
     is designed for deconvoluting mixed genomes with unknown 
     proportions. Traditional phasing programs are limited to diploid organisms. 
     Our method modifies Li and Stephen’s algorithm with Markov chain Monte Carlo
