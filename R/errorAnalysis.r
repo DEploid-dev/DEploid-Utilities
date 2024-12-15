@@ -68,7 +68,7 @@ dEploidOutError_3 <- function(h.pair, h.pair.true, rel.cost.switch = 2, do.plot 
   possible.permn[[24]] <- c(2, 3, 3)
 
   n.permn <- length(possible.permn)
-  print(n.permn)
+  message(n.permn)
   v <- rep(0, n.permn)
   vn <- v
 

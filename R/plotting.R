@@ -550,7 +550,7 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
       next
     }
 
-    cat("Loading from ", readFrom, " ")
+    message("Loading from ", readFrom, " ")
     probs <- read.table(readFrom, header = T)
 
     if (strain == first) {
@@ -571,7 +571,6 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
         name <- circlize::get.cell.meta.data("sector.index")
         xlim <- circlize::get.cell.meta.data("xlim")
         ylim <- circlize::get.cell.meta.data("ylim")
-        cat(".")
         chromRegion <- probs[probs$CHROM == name, ]
         if (inbreeding == T) {
           numberOfInbreeding <- sum(grepl("I", names(probs)))
@@ -593,7 +592,6 @@ fun_interpretDEploid_3_ring <- function(inPrefix, outPrefix = "", pdfBool, inbre
         }
       }
     )
-    cat("\n")
     idx <- idx + 1
   }
   circlize::circos.clear()
